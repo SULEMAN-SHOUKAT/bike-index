@@ -1,46 +1,75 @@
-import { ChangeEvent } from "react";
+import React from 'react';
+
+import { ChangeEvent } from 'react';
+import styled from 'styled-components';
 
 type InputProps = {
   id: string;
   title: string;
-  value: string;
+  value?: string;
   type: string;
   hideLabel?: boolean;
   onChange: (value: string) => void;
 };
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
   id,
   title,
   hideLabel = false,
   value,
   type,
   onChange,
-}: InputProps) => {
+}) => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
 
   return (
-    <div className="mb-2">
-      {!hideLabel && (
-        <label
-          htmlFor="username"
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
-          {title}
-        </label>
-      )}
-      <input
+    <InputContainer>
+      {!hideLabel && <InputLabel htmlFor='username'>{title}</InputLabel>}
+      <InputField
         type={type}
         id={id}
         placeholder={title}
-        className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-        value={value}
+        value={value || ''}
         onChange={handleOnChange}
       />
-    </div>
+    </InputContainer>
   );
 };
 
+const InputContainer = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputLabel = styled.label`
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: #1c2833;
+`;
+
+const InputField = styled.input`
+  padding: 10px 8px;
+  border: 1px solid #abb2b9;
+  color: #525252;
+  min-height: 25px;
+  display: initial;
+
+  outline: none;
+  border-radius: 4px;
+  font-size: 15px;
+  &:focus {
+    background-size:
+      100% 2px,
+      100% 1px;
+    outline: 0 none;
+    border: 1px solid blue;
+  }
+  &::placeholder {
+    font-weight: bold;
+    color: #abb2b9;
+  }
+`;
 export default Input;

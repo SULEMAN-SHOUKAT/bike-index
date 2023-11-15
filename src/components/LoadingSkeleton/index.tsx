@@ -1,21 +1,37 @@
-const LoadingSkeleton = () => {
+import React from 'react';
+
+import styled, { keyframes } from 'styled-components';
+
+const LoadingSkeleton: React.FC = () => {
   return (
-    <div className="border shadow rounded-md p-4  w-full mx-auto">
-      <div className="animate-pulse flex space-x-4">
-        <div className="flex-1 space-y-6 py-1">
-          <div className="h-2 bg-slate-200 rounded"></div>
-          <div className="space-y-3">
-            <div className="grid grid-cols-3 gap-4">
-              <div className="h-2 bg-slate-200 rounded col-span-2"></div>
-              <div className="h-2 bg-slate-200 rounded col-span-1"></div>
-            </div>
-            <div className="h-2 bg-slate-200 rounded"></div>
-          </div>
-        </div>
-      </div>
-      <div className="rounded bg-slate-200 h-20 w-full"></div>
-    </div>
+    <SkeletonContainer>
+      <SkeletonLoader />
+      <SkeletonLoader />
+      <SkeletonLoader />
+    </SkeletonContainer>
   );
 };
+
+const shimmer = keyframes`
+  0% {
+    background-position: -300px 0;
+  }
+  100% {
+    background-position: 300px 0;
+  }
+`;
+
+const SkeletonContainer = styled.div`
+  width: 100%;
+`;
+const SkeletonLoader = styled.div`
+  background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+  background-size: 1000px 100%;
+  animation: ${shimmer} 1.5s infinite linear;
+  border-radius: 4px;
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 10px;
+`;
 
 export default LoadingSkeleton;

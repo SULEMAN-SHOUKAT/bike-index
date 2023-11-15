@@ -1,15 +1,16 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Browse from "./pages/browse";
+import React from 'react';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Browse from './pages/browse';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Browse />,
   },
 ]);
 
-console.log(router);
-const AppRouter = () => {
+const AppRouter: React.FC = () => {
   return <RouterProvider router={router} />;
 };
 
