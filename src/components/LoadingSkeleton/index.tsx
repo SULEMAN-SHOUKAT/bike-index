@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 
 const LoadingSkeleton: React.FC = () => {
   return (
-    <SkeletonContainer>
+    <SkeletonContainer data-testid='loading-skeleton'>
       <SkeletonLoader />
       <SkeletonLoader />
       <SkeletonLoader />

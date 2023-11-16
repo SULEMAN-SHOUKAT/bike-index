@@ -14,7 +14,12 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   size,
 }) => {
   return (
-    <Button onClick={onClick} disabled={disabled} size={size}>
+    <Button
+      onClick={onClick}
+      disabled={disabled}
+      size={size}
+      data-testid='primary-button'
+    >
       {title}
     </Button>
   );

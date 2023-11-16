@@ -10,7 +10,9 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, type }) => {
     <NoRecordContainer>
       <ContentContainer>
         <EmptySkelton />
-        <Title type={type}>{title}</Title>
+        <Title type={type} data-testid={`info-card-${type}`}>
+          {title}
+        </Title>
       </ContentContainer>
     </NoRecordContainer>
   );

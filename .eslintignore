@@ -2,3 +2,5 @@ node_modules
 webpack.config.js
 webpack.dev.js
 webpack.prod.js
+jest.config.js
+jest.setup.ts

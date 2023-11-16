@@ -8,35 +8,35 @@ type BikeProps = {
 };
 const BikeCard: React.FC<BikeProps> = ({ bike }) => {
   return (
-    <BikeCardContainer>
+    <BikeCardContainer data-testid='bike-card'>
       <CardImageContainer>
         {bike.thumb ? (
-          <Image src={bike.thumb} alt={bike.title} />
+          <Image data-testid='bike-thumb' src={bike.thumb} alt={bike.title} />
         ) : (
-          <ImageAlt />
+          <ImageAlt data-testid='bike-image-placeholder' />
         )}
       </CardImageContainer>
       <CardContentContainer>
-        <Title>{bike.title}</Title>
-        <TextContent>
+        <Title data-testid='bike-title'>{bike.title}</Title>
+        <TextContent data-testid='bike-serial'>
           <ContentTitle>Serial: </ContentTitle>
           {bike.serial}
         </TextContent>
-        <TextContent>
+        <TextContent data-testid='bike-description'>
           <ContentTitle>Description: </ContentTitle>
           {bike.description}
         </TextContent>
-        <TextContent>
+        <TextContent data-testid='bike-stolen-date'>
           <ContentTitle>Stolen At: </ContentTitle>
           {new Date(bike.date_stolen).toLocaleString('DE')}
         </TextContent>
-        <TextContent>
+        <TextContent data-testid='bike-frame-model'>
           <ContentTitle>Frame Model: </ContentTitle>
           {bike.frame_model}
         </TextContent>
       </CardContentContainer>
       <CardContentContainer>
-        <TextContent>
+        <TextContent data-testid='bike-location'>
           <ContentTitle>Location: </ContentTitle>
           {bike.stolen_location}
         </TextContent>

@@ -26,10 +26,15 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <InputContainer>
-      {!hideLabel && <InputLabel htmlFor='username'>{title}</InputLabel>}
+      {!hideLabel && (
+        <InputLabel htmlFor={id} data-testid={`${id}-label`}>
+          {title}
+        </InputLabel>
+      )}
       <InputField
         type={type}
         id={id}
+        data-testid={id}
         placeholder={title}
         value={value || ''}
         onChange={handleOnChange}
