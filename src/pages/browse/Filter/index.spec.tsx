@@ -16,7 +16,7 @@ describe('#Filter', () => {
       <Filter
         filter={mockedFilter}
         onChangeFilter={mockOnChangeFilter}
-        onFilter={mockOnFilter}
+        applyFilter={mockOnFilter}
       />,
     );
 
@@ -48,7 +48,7 @@ describe('#Filter', () => {
       <Filter
         filter={mockedFilter}
         onChangeFilter={mockOnChangeFilter}
-        onFilter={mockOnFilter}
+        applyFilter={mockOnFilter}
       />,
     );
 

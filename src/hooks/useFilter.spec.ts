@@ -1,10 +1,11 @@
 import { renderHook, act } from '@testing-library/react';
 import useFilter from './useFilter';
 import MockRouterWrapper from '../utils/mocks/MockRouterWrapper';
+import { mockedDefaultFilter } from '../utils/mocks/mockedData';
 
 describe('#useFilter', () => {
   it('should update filter with values', async () => {
-    const { result } = renderHook(() => useFilter(), {
+    const { result } = renderHook(() => useFilter(mockedDefaultFilter), {
       wrapper: MockRouterWrapper,
     });
 
@@ -31,7 +32,7 @@ describe('#useFilter', () => {
   });
 
   it('should update filter with values adn remove empty values', async () => {
-    const { result } = renderHook(() => useFilter(), {
+    const { result } = renderHook(() => useFilter(mockedDefaultFilter), {
       wrapper: MockRouterWrapper,
     });
 
@@ -60,7 +61,7 @@ describe('#useFilter', () => {
   });
 
   it('should update add only one filter', async () => {
-    const { result } = renderHook(() => useFilter(), {
+    const { result } = renderHook(() => useFilter(mockedDefaultFilter), {
       wrapper: MockRouterWrapper,
     });
 

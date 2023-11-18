@@ -2,6 +2,7 @@ import React from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Browse from './pages/browse';
+import Layout from './layout';
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
 ]);
 
 const AppRouter: React.FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
+  );
 };
 
 export default AppRouter;

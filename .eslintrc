@@ -10,7 +10,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "project": ["./tsconfig.json"]
+    "project": ["tsconfig.json"]
   },
   "settings": {
     "react": {

@@ -28,7 +28,9 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 const Button = styled.button<{ size?: 'sm' | 'md' | 'lg' }>`
   padding: 4px 10px;
   background-color: #2e4053;
+  font-weight: bold;
   border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-height: ${(props) => (props.size === 'lg' ? '3rem' : '2rem')};
   min-width: ${(props) => (props.size === 'lg' ? '6rem' : '4rem')};
   border-radius: 4px;

@@ -3,44 +3,48 @@ import React from 'react';
 import styled from 'styled-components';
 import { type Bike } from '../../services/bike-index';
 
+import ImageIcon from '../../assets/image.svg';
+
 type BikeProps = {
   bike: Bike;
 };
 const BikeCard: React.FC<BikeProps> = ({ bike }) => {
   return (
     <BikeCardContainer data-testid='bike-card'>
-      <CardImageContainer>
+      <ImageContainer>
         {bike.thumb ? (
           <Image data-testid='bike-thumb' src={bike.thumb} alt={bike.title} />
         ) : (
-          <ImageAlt data-testid='bike-image-placeholder' />
+          <ImageAlt data-testid='bike-image-placeholder'>
+            <ImageIcon />
+          </ImageAlt>
         )}
-      </CardImageContainer>
-      <CardContentContainer>
+      </ImageContainer>
+      <ContentContainer>
         <Title data-testid='bike-title'>{bike.title}</Title>
         <TextContent data-testid='bike-serial'>
-          <ContentTitle>Serial: </ContentTitle>
+          <TextTitle>Serial: </TextTitle>
           {bike.serial}
         </TextContent>
         <TextContent data-testid='bike-description'>
-          <ContentTitle>Description: </ContentTitle>
+          <TextTitle>Description: </TextTitle>
           {bike.description}
         </TextContent>
         <TextContent data-testid='bike-stolen-date'>
-          <ContentTitle>Stolen At: </ContentTitle>
+          <TextTitle>Stolen At: </TextTitle>
           {new Date(bike.date_stolen).toLocaleString('DE')}
         </TextContent>
         <TextContent data-testid='bike-frame-model'>
-          <ContentTitle>Frame Model: </ContentTitle>
+          <TextTitle>Frame Model: </TextTitle>
           {bike.frame_model}
         </TextContent>
-      </CardContentContainer>
-      <CardContentContainer>
+      </ContentContainer>
+      <ContentContainer>
         <TextContent data-testid='bike-location'>
-          <ContentTitle>Location: </ContentTitle>
+          <TextTitle>Location: </TextTitle>
           {bike.stolen_location}
         </TextContent>
-      </CardContentContainer>
+      </ContentContainer>
     </BikeCardContainer>
   );
 };
@@ -49,6 +53,7 @@ const BikeCardContainer = styled.div`
   width: 100%;
   border-radius: 10px;
   background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
   margin-bottom: 10px;
   min-height: 200px;
@@ -57,7 +62,7 @@ const BikeCardContainer = styled.div`
   }
 `;
 
-const CardImageContainer = styled.div`
+const ImageContainer = styled.div`
   min-width: 200px;
   max-height: 200px;
   @media (max-width: 768px) {
@@ -69,7 +74,8 @@ const CardImageContainer = styled.div`
 const Image = styled.img`
   width: 200px;
   height: 200px;
-  border-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
   @media (max-width: 768px) {
     min-width: 100%;
     height: 400px;
@@ -79,16 +85,20 @@ const Image = styled.img`
 const ImageAlt = styled.div`
   width: 100%;
   height: 100%;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
   background-size: 1000px 100%;
-  border-radius: 4px;
   @media (max-width: 768px) {
     min-width: 100%;
     height: 400px;
   }
 `;
 
-const CardContentContainer = styled.div`
+const ContentContainer = styled.div`
   width: 40%;
   margin-left: 2rem;
   padding: 10px;
@@ -111,11 +121,11 @@ const TextContent = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit number of displayed lines */
-  -webkit-box-orient: vertical; /* Set vertical layout */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
-const ContentTitle = styled.span`
+const TextTitle = styled.span`
   font-weight: bold;
 `;
 export default BikeCard;

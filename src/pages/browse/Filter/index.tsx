@@ -8,13 +8,13 @@ import PrimaryButton from '../../../components/primaryButton';
 
 type FilterProps = {
   filter: IFilter;
-  onChangeFilter: (value: string, key: string) => void;
-  onFilter: () => void;
+  onChangeFilter: (value: string, key: keyof IFilter) => void;
+  applyFilter: () => void;
 };
 const Filter: React.FC<FilterProps> = ({
   filter,
   onChangeFilter,
-  onFilter,
+  applyFilter,
 }) => {
   return (
     <FiltersContainer>
@@ -45,7 +45,7 @@ const Filter: React.FC<FilterProps> = ({
           />
         </FilterInput>
       </FiltersRow>
-      <PrimaryButton onClick={onFilter} title='Filter' size='lg' />
+      <PrimaryButton onClick={applyFilter} title='Filter' size='lg' />
     </FiltersContainer>
   );
 };

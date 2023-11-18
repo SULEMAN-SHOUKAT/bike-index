@@ -5,32 +5,36 @@ import styled, { keyframes } from 'styled-components';
 const LoadingSkeleton: React.FC = () => {
   return (
     <SkeletonContainer data-testid='loading-skeleton'>
-      <SkeletonLoader />
-      <SkeletonLoader />
-      <SkeletonLoader />
+      <Loader />
+      <Loader />
+      <Loader />
     </SkeletonContainer>
   );
 };
 
 const shimmer = keyframes`
-  0% {
-    background-position: -300px 0;
-  }
-  100% {
-    background-position: 300px 0;
+ to {
+    background-position-x: -200%;
   }
 `;
 
 const SkeletonContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 13rem;
 `;
-const SkeletonLoader = styled.div`
-  background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
-  background-size: 1000px 100%;
-  animation: ${shimmer} 1.5s infinite linear;
+
+const Loader = styled.div`
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  border-radius: 5px;
+  background-size: 200% 100%;
+  animation: 1.5s ${shimmer} linear infinite;
   border-radius: 4px;
   width: 100%;
-  height: 4rem;
+  height: 100%;
   margin-bottom: 10px;
 `;
 

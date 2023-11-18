@@ -31,7 +31,8 @@ describe('#Pagination', () => {
     expect(screen.getByText('total records:')).toBeInTheDocument();
     expect(screen.getByText('30')).toBeInTheDocument();
 
-    expect(screen.getByText('page 2 of 5')).toBeInTheDocument();
+    expect(screen.getByText('2')).toBeInTheDocument();
+    expect(screen.getByText('5')).toBeInTheDocument();
   });
 
   it('calls onPageChange correctly on prev and next buttons click', () => {

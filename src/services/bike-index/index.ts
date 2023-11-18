@@ -42,14 +42,16 @@ const get = async (filter: IFilter): Promise<BikeIndexes> => {
   try {
     const bikes = await searchBikes(filter);
     const count = await getCount(filter);
+    const totalPages = Math.ceil(count / filter.per_page);
     return {
       bikes,
       count,
-      totalPages: Math.ceil(count / filter.per_page),
+      totalPages,
     };
   } catch (error) {
-    console.log(error);
-    throw new Error('An error occur while getting bikeIndexes');
+    throw new Error('An error occur while getting bikeIndexes', {
+      cause: error,
+    });
   }
 };
 

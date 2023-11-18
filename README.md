@@ -1,12 +1,3 @@
-# Stolen Bike Index - Carly Coding Challenge
-![Stolen Bike Cases](./illustration.png)
-
-## Context
-
-Stolen bikes are a typical problem in Munich. The Police want to be more efficient in resolving stolen bike cases. They decided to build a software that can automate their processes — the software that you're going to develop.
-
-This app needs to display the list of reported bike thefts based on the Bikeindex [API](https://bikeindex.org/documentation/api_v3).
-
 ## Product Requirements
 
 As a police officer:
@@ -31,7 +22,7 @@ As a police officer:
 
 Create the React application that satisfies all product and tech requirements.
 
-For that, you’ll need to make requests to a publicly-available [API](https://bikeindex.org/documentation/api_v3) to get JSON content and print it on view. 
+For that, you’ll need to make requests to a publicly-available [API](https://bikeindex.org/documentation/api_v3) to get JSON content and print it on view.
 
 The API is known to have some limitations. If you are not able to implement a particular requirement, please provide a description of what and why you could not implements.
 
@@ -51,15 +42,5 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 - React
 - Tests: Jest
 - Code Linter
-- Typescript 
+- Typescript
 - CSSinJS is a plus: styled-components, styled-system, ...
-
-## Instructions
-
-- Fork this repo
-- The challenge is on!
-- Build a performant, clean and well-structured solution
-- Commit early and often. We want to be able to check your progress
-- Make the app public. Deploy it using the service of your choice
-- Create a pull request
-- Please complete your working solution within 7 days of receiving this challenge, and be sure to notify us when it is ready for review.

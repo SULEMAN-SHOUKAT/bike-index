@@ -37,3 +37,10 @@ export const mockedFilter = {
   per_page: mockedPer_page,
   stolenness: mockedStoleness,
 };
+
+export const mockedDefaultFilter = {
+  location: mockedLocations[0],
+  page: mockedPage[0],
+  per_page: mockedPer_page,
+  stolenness: mockedStoleness,
+};

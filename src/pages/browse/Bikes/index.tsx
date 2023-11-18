@@ -7,6 +7,9 @@ import InfoCard from '../../../components/InfoCard';
 import LoadingSkeleton from '../../../components/LoadingSkeleton';
 import Pagination from '../../../components/Pagination';
 
+import RecordIcon from '../../../assets/record.svg';
+import ErrorIcon from '../../../assets/error.svg';
+
 type BikesProps = {
   bikeIndexes?: BikeIndexes;
   isLoading: boolean;
@@ -30,17 +33,18 @@ const Bikes: React.FC<BikesProps> = ({
       <InfoCard
         title='Oops! an unknown error occurs please contact the service'
         type='error'
+        Icon={ErrorIcon}
       />
     );
   }
 
   if (!bikeIndexes?.bikes?.length)
-    return <InfoCard title='No bikes found' type='info' />;
+    return <InfoCard title='No bikes found' type='info' Icon={RecordIcon} />;
 
   return (
-    <BikesContainer>
+    <Container>
       {bikeIndexes && (
-        <>
+        <Container>
           <Pagination
             totalPages={bikeIndexes.totalPages}
             count={bikeIndexes.count}
@@ -50,13 +54,13 @@ const Bikes: React.FC<BikesProps> = ({
           {bikeIndexes.bikes.map((bike) => (
             <BikeCard bike={bike} key={bike.id} />
           ))}
-        </>
+        </Container>
       )}
-    </BikesContainer>
+    </Container>
   );
 };
 
-const BikesContainer = styled.div`
+const Container = styled.div`
   width: 100%;
 `;
 

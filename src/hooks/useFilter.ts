@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
 export type IFilter = {
   location: string;
@@ -10,58 +9,18 @@ export type IFilter = {
   query?: string;
 };
 
-const DEFAULT_FILTERS = {
-  location: 'Munich',
-  page: 1,
-  per_page: 10,
-  stolenness: 'proximity',
-};
+const useFilter = (initialFilters: IFilter) => {
+  const [filter, setFilter] = useState<IFilter>(initialFilters);
 
-const mapFilterToParams = (filter: IFilter) => {
-  let mappedFilter = {};
-  for (const key in filter) {
-    mappedFilter = { ...mappedFilter, [key]: filter[key as keyof IFilter] };
-  }
-  return mappedFilter;
-};
-
-const mapParamsToFilter = (searchParams: URLSearchParams) => {
-  let mappedFilter = {};
-  searchParams.forEach((value, key) => {
-    const isNumber = /^-?\d+$/.test(value);
-    mappedFilter = {
-      ...mappedFilter,
-      [key]: isNumber ? parseInt(value, 10) : value,
-    };
-  });
-  return mappedFilter;
-};
-
-const isEmptyFilter = (obj: IFilter) => !Object.keys(obj).length;
-
-const useFilter = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [filter, setFilter] = useState<IFilter>(
-    mapParamsToFilter(searchParams) as IFilter,
-  );
-
-  const changeFilter = (value: string | number, key: string) => {
+  const changeFilter = (value: string | number, key: keyof IFilter) => {
     let newFilter = { ...filter };
     if (!value && filter && key in filter) {
-      delete newFilter[key as keyof IFilter];
+      delete newFilter[key];
     } else {
       newFilter = { ...newFilter, [key]: value };
     }
     setFilter(newFilter);
-    setSearchParams(mapFilterToParams(newFilter));
   };
-
-  useEffect(() => {
-    const params = mapFilterToParams(
-      isEmptyFilter(filter) ? DEFAULT_FILTERS : filter,
-    );
-    setSearchParams(params);
-  }, []);
 
   return {
     filter,

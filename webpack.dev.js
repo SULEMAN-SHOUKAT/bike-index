@@ -11,7 +11,7 @@ module.exports = merge(common, {
     },
     compress: true,
     open: true,
-    static: "./build",
+    static: "./public",
   },
   stats: {
     errorDetails: true,

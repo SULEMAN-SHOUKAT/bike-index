@@ -35,7 +35,8 @@ const Pagination: React.FC<PaginationProps> = ({
         />
 
         <PaginationInfo>
-          page {currentPage} of {totalPages}
+          page <InfoTitle>{currentPage}</InfoTitle> of{' '}
+          <InfoTitle>{totalPages}</InfoTitle>
         </PaginationInfo>
         <PrimaryButton
           disabled={currentPage >= totalPages}
@@ -54,12 +55,20 @@ const PaginationContainer = styled.div`
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 `;
 
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+  @media (max-width: 425px) {
+    margin-top: 1rem;
+  }
 `;
 
 const PaginationInfo = styled.div`

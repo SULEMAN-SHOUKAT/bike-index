@@ -1,0 +1,13 @@
+image: node:18.15.0
+
+before_script: []
+
+pages:
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
