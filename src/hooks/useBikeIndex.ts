@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+
 import { type IFilter } from './useFilter';
 import bikeIndexService, { type BikeIndexes } from '../services/bike-index';
 

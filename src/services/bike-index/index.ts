@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { type IFilter } from '../../hooks/useFilter';
 
 export type Bike = {

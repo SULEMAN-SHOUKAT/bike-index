@@ -1,5 +1,7 @@
 import { renderHook, waitFor } from '@testing-library/react';
+import axios from 'axios';
 
+import bikeIndexService from '../services/bike-index';
 import TestQueryWrapper from '../utils/mocks/MockQueryWrapper';
 import {
   mockedBike,
@@ -7,10 +9,8 @@ import {
   mockedCount,
   mockedFilter,
 } from '../utils/mocks/mockedData';
-import useBikeIndex from './useBikeIndex';
-import bikeIndexService from '../services/bike-index';
-import axios from 'axios';
 import global from '../utils/mocks/global';
+import useBikeIndex from './useBikeIndex';
 
 jest.mock('../services/bike-index', () => ({
   get: jest.fn(),

@@ -1,7 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Bikes from '.';
+
 import { mockedBike, mockedCount } from '../../../utils/mocks/mockedData';
+
+import Bikes from '.';
 
 describe('#Bikes', () => {
   const mockOnPageChange = jest.fn();

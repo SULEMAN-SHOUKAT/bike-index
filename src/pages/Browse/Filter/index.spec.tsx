@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import Filter from '.';
+
 import { mockedFilter } from '../../../utils/mocks/mockedData';
+import Filter from '.';
 
 describe('#Filter', () => {
   const mockOnChangeFilter = jest.fn();

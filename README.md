@@ -1,3 +1,13 @@
+# Stolen Bike Index - Carly Coding Challenge
+
+![Stolen Bike Cases](./illustration.png)
+
+## Context
+
+Stolen bikes are a typical problem in Munich. The Police want to be more efficient in resolving stolen bike cases. They decided to build a software that can automate their processes — the software that you're going to develop.
+
+This app needs to display the list of reported bike thefts based on the Bikeindex [API](https://bikeindex.org/documentation/api_v3).
+
 ## Product Requirements
 
 As a police officer:
@@ -44,3 +54,30 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 - Code Linter
 - Typescript
 - CSSinJS is a plus: styled-components, styled-system, ...
+
+## Instructions
+
+- Fork this repo
+- The challenge is on!
+- Build a performant, clean and well-structured solution
+- Commit early and often. We want to be able to check your progress
+- Make the app public. Deploy it using the service of your choice
+- Create a pull request
+- Please complete your working solution within 7 days of receiving this challenge, and be sure to notify us when it is ready for review.
+
+## Partially implemented requirements
+
+- Case title and description
+  - Api only has the generic title and description it is not like reported police case title and description it is just title of the theft and description of it and i used that information to handle this requirement.
+- Date of when the case was reported
+  - There is no date available when case was reported only date we have is when theft actually happened "Date of the theft" which is included in implementation
+- I want to filter reported bike thefts by partial case title.
+  - As mentioned above case title is not there only generic title is there and api does not support any query param specific for this title search but it has a param "query" which is
+    generic text search and it is implemented.
+
+## Missing Requirements
+
+- I want to filter reported bike thefts by date range.
+  - The API lacks support for filtering data by date range, offering no basic filtering mechanism based on dates. While one potential approach could involve retrieving data from the API and subsequently applying date-based filters,
+    this method poses challenges with pagination. The pagination and total record count are sourced from the API, necessitating the maintenance of distinct page numbers and counts. This approach would introduce complexity and the risk of presenting inaccurate information to users. Consequently, I opted to forego this requirement due to the API's limitations, prioritizing code simplicity and accuracy in the system.
+  - but i implemented some other filters like change city or search by serial number

@@ -1,10 +1,10 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
-import { type IFilter } from '../../../hooks/useFilter';
 import Input from '../../../components/Input';
-import PrimaryButton from '../../../components/primaryButton';
+import PrimaryButton from '../../../components/PrimaryButton';
+
+import { type IFilter } from '../../../hooks/useFilter';
 
 type FilterProps = {
   filter: IFilter;

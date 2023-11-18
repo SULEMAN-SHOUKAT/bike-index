@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import bikeIndexApi, { BikeIndexes, Bike } from '.';
 import { mockedBike, mockedCount } from '../../utils/mocks/mockedData';
 import global from '../../utils/mocks/global';

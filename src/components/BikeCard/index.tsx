@@ -1,6 +1,6 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
 import { type Bike } from '../../services/bike-index';
 
 import ImageIcon from '../../assets/image.svg';

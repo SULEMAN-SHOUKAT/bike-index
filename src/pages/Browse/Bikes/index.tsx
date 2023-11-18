@@ -1,6 +1,6 @@
 import React from 'react';
-
 import styled from 'styled-components';
+
 import { BikeIndexes } from '../../../services/bike-index';
 import BikeCard from '../../../components/BikeCard';
 import InfoCard from '../../../components/InfoCard';

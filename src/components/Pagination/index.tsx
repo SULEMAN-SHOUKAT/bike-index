@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import PrimaryButton from '../primaryButton';
+
+import PrimaryButton from '../PrimaryButton';
 
 type PaginationProps = {
   currentPage: number;

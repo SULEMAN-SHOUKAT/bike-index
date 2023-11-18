@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import useBikeIndex from '../../hooks/useBikeIndex';
-import useFilter from '../../hooks/useFilter';
+
 import Bikes from './Bikes';
 import Filter from './Filter';
+
+import useBikeIndex from '../../hooks/useBikeIndex';
+import useFilter from '../../hooks/useFilter';
 import useParams from '../../hooks/useParams';
 
 const Browse: React.FC = () => {

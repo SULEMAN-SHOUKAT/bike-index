@@ -1,7 +1,9 @@
 import { renderHook, act } from '@testing-library/react';
-import useFilter from './useFilter';
+
 import MockRouterWrapper from '../utils/mocks/MockRouterWrapper';
 import { mockedDefaultFilter } from '../utils/mocks/mockedData';
+
+import useFilter from './useFilter';
 
 describe('#useFilter', () => {
   it('should update filter with values', async () => {
